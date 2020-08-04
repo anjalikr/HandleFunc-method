@@ -9,12 +9,22 @@ func messageHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "I am message1")
 }
 
-func main() {
+/*func main() {
 
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/message1", messageHandler)
 
 	http.ListenAndServe(":8080", mux)
+
+}*/
+
+//Default ServeMux
+
+func main() {
+
+	http.HandleFunc("/message1", messageHandler)
+
+	http.ListenAndServe(":8080", nil)
 
 }
